@@ -34,6 +34,7 @@ function App() {
     parseFloat(total);
     console.log(total);
     let intrest = intrint / 12 / 100;
+    // *******************Validation*******************************
     if (amt === "" && yer === "" && mnt === "" && intr === "") {
       alert("All fields should be filled");
       setEmi();
@@ -83,6 +84,10 @@ function App() {
   const resethandler = () => {
     console.log("reset button clicked");
     setDiv({ display: "none" });
+    setAmount("");
+    setInterest("");
+    setMonth("");
+    setYear("");
     
   };
 
@@ -131,16 +136,16 @@ function App() {
         <h2>
           {" "}
           <label>Loan Amount:</label>{" "}
-          <input type="number" onChange={amounthandler} />
+          <input type="number" value={amount} onChange={amounthandler} />
         </h2>
         <h2>
           <label>Interest % :</label>{" "}
-          <input type="number" onChange={interesthandler} />
+          <input type="number" value={interest} onChange={interesthandler} />
         </h2>
         <h2>
           <label> Period:</label>{" "}
-          <input type="number" placeholder="In year" onChange={yearhandler} />{" "}
-          <input type="number" placeholder="In month" onChange={monthhandler} />
+          <input type="number" value={year} placeholder="In year" onChange={yearhandler} />{" "}
+          <input type="number" value={month} placeholder="In month" onChange={monthhandler} />
         </h2>
       </div>
       <button className="button" onClick={calculatehandler}>
